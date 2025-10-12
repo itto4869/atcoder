@@ -1,15 +1,4 @@
 { "github.copilot.enable": { "*": false },
-"rust-analyzer.check.overrideCommand": [
-    "cargo", "check",
-    "--workspace",
-    "--message-format=json-diagnostic-rendered-ansi",
-    "--all-targets"
-],
-"rust-analyzer.cargo.buildScripts.overrideCommand": [
-    "cargo", "check",
-    "--quiet",
-    "--workspace",
-    "--message-format=json",
-    "--all-targets"
-]
+"rust-analyzer.server.path": "${userHome}/.cargo/bin/rust-analyzer",
+"rust-analyzer.rustup.toolchain": "1.70.0"
 }
