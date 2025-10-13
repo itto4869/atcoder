@@ -1,6 +1,10 @@
-use proconio::{fastout, input};
+use proconio::{fastout, input, marker::Chars};
 
 #[fastout]
 fn main() {
-    input! {}
+    input! {
+        s: Chars
+    }
+    let n = s.len() - 2;
+    println!("{}{}{}", s[0], n, s.last().unwrap());
 }
