@@ -6,28 +6,28 @@ match: Lines
 cases:
   - name: sample1
     in: |
-      3
-      aab
-      ccb
+      9 3
+      ovowowovo
     out: |
-      6
+      2
+      ovo owo
   - name: sample2
     in: |
-      1
-      Z
-      Z
+      9 1
+      ovowowovo
     out: |
-      3
+      5
+      o
   - name: sample3
     in: |
-      52
-      RvvttdWIyyPPQFFZZssffEEkkaSSDKqcibbeYrhAljCCGGJppHHn
-      RLLwwdWIxxNNQUUXXVVMMooBBaggDKqcimmeYrhAljOOTTJuuzzn
+      35 3
+      thequickbrownfoxjumpsoverthelazydog
     out: |
-      958681902
+      2
+      the
 
 extend:
   - type: Text
-    path: "./d"
+    path: "./b"
     in: /in/*.txt
     out: /out/*.txt

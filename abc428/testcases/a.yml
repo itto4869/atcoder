@@ -6,22 +6,22 @@ match: Lines
 cases:
   - name: sample1
     in: |
-      atcoderregularcontest
+      7 3 2 11
     out: |
-      b
+      49
   - name: sample2
     in: |
-      abcdefghijklmnopqrstuvwxyz
+      6 3 2 9
     out: |
-      None
+      36
   - name: sample3
     in: |
-      fajsonlslfepbjtsaayxbymeskptcumtwrmkkinjxnnucagfrg
+      1 1 666 428
     out: |
-      d
+      1
 
 extend:
   - type: Text
-    path: "./b"
+    path: "./a"
     in: /in/*.txt
     out: /out/*.txt

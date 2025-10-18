@@ -6,21 +6,24 @@ match: Lines
 cases:
   - name: sample1
     in: |
+      8
+      1 (
       2
+      1 (
+      1 )
       2
-      3
+      1 (
+      1 )
+      1 )
     out: |
-      6
-  - name: sample2
-    in: |
-      5
-      2
-      5
-      10
-      1000000000000000000
-      1000000000000000000
-    out: |
-      1000000000000000000
+      No
+      Yes
+      No
+      Yes
+      No
+      No
+      No
+      Yes
 
 extend:
   - type: Text

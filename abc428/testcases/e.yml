@@ -6,22 +6,29 @@ match: Lines
 cases:
   - name: sample1
     in: |
-      internationalization
+      3
+      1 2
+      2 3
     out: |
-      i18n
+      3
+      3
+      1
   - name: sample2
     in: |
-      smiles
+      5
+      1 2
+      2 3
+      2 4
+      1 5
     out: |
-      s4s
-  - name: sample3
-    in: |
-      xyz
-    out: |
-      x1z
+      4
+      5
+      5
+      5
+      4
 
 extend:
   - type: Text
-    path: "./b"
+    path: "./e"
     in: /in/*.txt
     out: /out/*.txt
