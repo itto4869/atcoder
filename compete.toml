@@ -113,6 +113,8 @@ smallvec = { version = "=1.15.1", features = [
     "serde",
     "arbitrary",
 ] }
+
+cp_library = { git = "https://github.com/itto4869/cp_library.git", branch = "rust-1.89.0" }
 '''
 
 dev-dependencies = '''
@@ -169,11 +171,11 @@ toolchain = "1.89.0"
 # Defaults to `"dev"`.
 #profile = "dev"
 
-[submit]
-kind = "file"
-path = "{{ src_path }}"
-language_id = "6088"
 #[submit]
-#kind = "command"
-#args = ["cargo", "equip", "--exclude-atcoder-crates", "--resolve-cfgs", "--remove", "docs", "--minify", "libs", "--rustfmt", "--check", "--bin", "{{ bin_name }}"]
+#kind = "file"
+#path = "{{ src_path }}"
 #language_id = "6088"
+[submit]
+kind = "command"
+args = ["cargo", "equip", "--exclude-atcoder-crates", "--resolve-cfgs", "--remove", "docs", "--minify", "libs", "--rustfmt", "--check", "--bin", "{{ bin_name }}", "--mine", "github.com/itto4869"]
+language_id = "6088"
