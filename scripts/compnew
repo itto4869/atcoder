@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# cargo compete new のラッパー（.gitkeep対応版）
+if [ -z "${1:-}" ]; then
+    echo "エラー: コンテストIDを指定してください (例: compnew abc300)"
+    exit 1
+fi
+
+contest_id="$1"
+
+# 1. cargo compete new を実行
+cargo compete new "$contest_id"
+
+# 2. ルートの Cargo.toml を上書き（RA高速化）
+cat <<EOF2 > Cargo.toml
+[workspace]
+resolver = "2"
+members = ["abs", "dp", "typical90", "$contest_id"]
+EOF2
+
+# 3. testcases内の空ディレクトリに .gitkeep を追加
+# -type d: ディレクトリを対象
+# -empty: 空のものだけ
+# -exec touch: ファイルを作成
+if [ -d "$contest_id/testcases" ]; then
+    find "$contest_id/testcases" -type d -empty -exec touch {}/.gitkeep \;
+    echo "✅ 空のtestcasesフォルダに .gitkeep を追加しました"
+fi
+
+echo "✅ ワークスペース設定を更新しました: members = [\"abs\", \"dp\", \"typical90\", \"$contest_id\"]"
