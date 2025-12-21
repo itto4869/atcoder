@@ -1640,6 +1640,7 @@ dependencies = [
  "bstr",
  "btreemultimap",
  "counter",
+ "cp_library",
  "easy-ext",
  "either",
  "fixedbitset",
