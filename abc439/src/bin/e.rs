@@ -1,5 +1,5 @@
 use std::cmp::Reverse;
-
+use cp_library::lis;
 use proconio::{fastout, input};
 
 #[fastout]
@@ -11,7 +11,8 @@ fn main() {
     ab.sort_unstable_by_key(|x| (x.0, Reverse(x.1)));
 
     let bs: Vec<u64> = ab.iter().map(|&(a, b)| b).collect();
-    let ans = solve_lis(&bs);
+    let ans = lis(&bs);
+
 
     println!("{}", ans);
 
