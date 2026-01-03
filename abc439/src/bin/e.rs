@@ -17,18 +17,3 @@ fn main() {
     println!("{}", ans);
 
 }
-
-fn solve_lis(nums: &[u64]) -> usize {
-    let mut dp = Vec::new();
-
-    for &x in nums {
-        let idx = dp.binary_search(&x).unwrap_or_else(|i| i);
-
-        if idx < dp.len() {
-            dp[idx] = x;
-        } else {
-            dp.push(x);
-        }
-    }
-    dp.len()
-}
