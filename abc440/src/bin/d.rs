@@ -1,5 +1,3 @@
-use std::collections::{HashMap, HashSet};
-
 use proconio::{fastout, input};
 
 #[fastout]

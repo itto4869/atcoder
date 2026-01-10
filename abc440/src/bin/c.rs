@@ -20,8 +20,6 @@ fn main() {
 
         let mut cost: u64 = costs[..w].iter().sum();
         let mut ans = cost;
-        let mut l = 0;
-        let mut r = w - 1;
         for i in 0..(2 * w) {
             let l = i;
             let r = (i + w) % (2 * w);
