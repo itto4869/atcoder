@@ -1,0 +1,69 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      3 3 2
+      X o
+      #.#
+      .#.
+      #.#
+    out: |
+      XXooXX
+      XXooXX
+      ooXXoo
+      ooXXoo
+      XXooXX
+      XXooXX
+  - name: sample2
+    in: |
+      2 4 3
+      A B
+      #..#
+      .##.
+    out: |
+      AAABBBBBBAAA
+      AAABBBBBBAAA
+      AAABBBBBBAAA
+      BBBAAAAAABBB
+      BBBAAAAAABBB
+      BBBAAAAAABBB
+  - name: sample3
+    in: |
+      5 6 4
+      R w
+      #....#
+      .#..#.
+      ..##..
+      .#..#.
+      #....#
+    out: |
+      RRRRwwwwwwwwwwwwwwwwRRRR
+      RRRRwwwwwwwwwwwwwwwwRRRR
+      RRRRwwwwwwwwwwwwwwwwRRRR
+      RRRRwwwwwwwwwwwwwwwwRRRR
+      wwwwRRRRwwwwwwwwRRRRwwww
+      wwwwRRRRwwwwwwwwRRRRwwww
+      wwwwRRRRwwwwwwwwRRRRwwww
+      wwwwRRRRwwwwwwwwRRRRwwww
+      wwwwwwwwRRRRRRRRwwwwwwww
+      wwwwwwwwRRRRRRRRwwwwwwww
+      wwwwwwwwRRRRRRRRwwwwwwww
+      wwwwwwwwRRRRRRRRwwwwwwww
+      wwwwRRRRwwwwwwwwRRRRwwww
+      wwwwRRRRwwwwwwwwRRRRwwww
+      wwwwRRRRwwwwwwwwRRRRwwww
+      wwwwRRRRwwwwwwwwRRRRwwww
+      RRRRwwwwwwwwwwwwwwwwRRRR
+      RRRRwwwwwwwwwwwwwwwwRRRR
+      RRRRwwwwwwwwwwwwwwwwRRRR
+      RRRRwwwwwwwwwwwwwwwwRRRR
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
