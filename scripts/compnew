@@ -16,7 +16,7 @@ cargo compete new "$contest_id"
 cat <<EOF2 > Cargo.toml
 [workspace]
 resolver = "2"
-members = ["abs", "dp", "typical90", "$contest_id"]
+members = ["dp", "typical90", "tessoku-book", "$contest_id"]
 EOF2
 
 # 3. testcases内の空ディレクトリに .gitkeep を追加
