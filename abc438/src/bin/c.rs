@@ -4,36 +4,25 @@ use proconio::{fastout, input};
 fn main() {
     input! {
         n: usize,
-        a: [u64; n],
     }
-    let mut curr = a[0];
-    let mut cnt = 0;
-    let mut rle = vec![(0, 0); n];
-    let mut delete_cnt = 0;
-    let mut idx = 0;
-    for i in 0..n {
-        if curr == a[i] {
-            cnt += 1;
-
-            if cnt == 4 {
-                delete_cnt += 1;
-                if idx > 0 {
-                    (curr, cnt) = rle[idx];
-                    idx -= 1;
-                } else {
-                    curr = 0;
-                    cnt = 0;
-                }
-
-            }
+    let mut stack = Vec::new();
+    stack.push((0, 0));
+    for _ in 0..n {
+        input! {
+            a: u64,
+        }
+        if a == stack.last().unwrap().0 {
+            let (m, cnt) = stack.pop().unwrap();
+            stack.push((m, cnt + 1));
         } else {
-            idx += 1;
-            rle[idx] = (curr, cnt);
-            curr = a[i];
-            cnt = 1;
+            stack.push((a, 1));
+        }
+
+        if stack.last().unwrap().1 == 4 {
+            stack.pop();
         }
     }
 
-    let ans = n - 4 * delete_cnt;
+    let ans: u64 = stack.iter().map(|(_, b)| b).sum();
     println!("{}", ans);
 }
