@@ -28,4 +28,4 @@ if [ -d "$contest_id/testcases" ]; then
     echo "✅ 空のtestcasesフォルダに .gitkeep を追加しました"
 fi
 
-echo "✅ ワークスペース設定を更新しました: members = [\"abs\", \"dp\", \"typical90\", \"$contest_id\"]"
+echo "✅ ワークスペース設定を更新しました: members = [\"dp\", \"typical90\", \"tessoku-book"\, \"$contest_id\"]"
