@@ -1,0 +1,24 @@
+---
+type: Batch
+timelimit: 1s 500ms
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      ABRACADABRA
+      ECADADABRBCRDARA
+    out: |
+      5
+  - name: sample2
+    in: |
+      UPWJCIRUCAXIIRGL
+      SBQNYBSBZDFNEV
+    out: |
+      0
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
