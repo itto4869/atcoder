@@ -1,0 +1,37 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      *(*(0,5),+(14,3),-(5,77))
+    out: |
+      ((0*5)*(14+3)*(5-77))
+  - name: sample2
+    in: |
+      +(1,+(+(2,3)),+(4,+(5)))
+    out: |
+      (1+((2+3))+(4+(5)))
+  - name: sample3
+    in: |
+      9876
+    out: |
+      9876
+  - name: sample4
+    in: |
+      +(123456789,12345678901234567890,0,00,000,0123456789)
+    out: |
+      (123456789+12345678901234567890+0+00+000+0123456789)
+  - name: sample5
+    in: |
+      *(5)
+    out: |
+      (5)
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
