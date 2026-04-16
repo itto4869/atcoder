@@ -1,3 +1,3 @@
 [workspace]
 resolver = "2"
-members = ["dp", "typical90", "tessoku-book", "awc0048"]
+members = ["dp", "typical90", "tessoku-book", "adt_all_20260416_2"]
