@@ -1,38 +1,48 @@
 use std::collections::VecDeque;
 
 use cp_library::{grid::neighbors4, yes_no};
-use proconio::{fastout, input, marker::Bytes};
+use proconio::{fastout, input, marker::Chars};
 
 #[fastout]
 fn main() {
     input! {
         h: usize,
         w: usize,
-        grid: [Bytes; h],
+        grid: [Chars; h],   
     }
-    let mut dist = vec![vec![-1i64; w]; h];
+    let mut seen = vec![vec![false; w]; h];
+    let map = |curr, next: char| {
+        match curr {
+            's' => next == 'n',
+            'n' => next == 'u',
+            'u' => next == 'k',
+            'k' => next == 'e',
+            'e' => next == 's',
+            _ => false,
+        }
+    };
+
     let mut queue = VecDeque::new();
     queue.push_back((0, 0));
-    dist[0][0] = 0;
-    let snuke = [b's', b'n', b'u', b'k', b'e'];
+    seen[0][0] = true;
     while let Some((r, c)) = queue.pop_front() {
-        if grid[r][c] != snuke[dist[r][c] as usize % 5] {
-            break;
-        }
         let next = neighbors4(r, c, h, w);
         for (nr, nc) in next {
-            if dist[nr][nc] != -1 {
+            if seen[nr][nc] {
                 continue;
             }
 
-            if grid[nr][nc] != snuke[(dist[r][c] as usize + 1) % 5] {
+            let curr_c = grid[r][c];
+            let next_c = grid[nr][nc];
+
+            if !map(curr_c, next_c) {
                 continue;
             }
 
-            dist[nr][nc] = dist[r][c] + 1;
+            seen[nr][nc] = true;
             queue.push_back((nr, nc));
         }
     }
 
-    yes_no!(dist[h - 1][w - 1] != -1);
+    yes_no!(seen[h - 1][w - 1]);
 }

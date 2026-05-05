@@ -5,7 +5,6 @@ use proconio::{fastout, input};
 fn main() {
     let mut ok = true;
     let mut pre_s = 0;
-
     for _ in 0..8 {
         input! {
             s: u64,

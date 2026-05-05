@@ -14,15 +14,14 @@ fn main() {
     let mut map = HashMap::new();
     for i in 0..m {
         input! {
-            pi: u64,
+            p: u64,
         }
-        map.insert(&d[i], pi);
+        map.insert(&d[i], p);
     }
-
     let mut ans = 0;
     for ci in c {
-        if let Some(v) = map.get(&ci) {
-            ans += v;
+        if let Some(&pi) = map.get(&ci) {
+            ans += pi;
         } else {
             ans += p0;
         }

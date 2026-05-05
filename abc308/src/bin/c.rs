@@ -6,22 +6,24 @@ fn main() {
     input! {
         n: usize,
     }
-    let mut v = Vec::with_capacity(n);
-    for i in 1..=n {
+    let mut ab = Vec::with_capacity(n);
+    for i in 0..n {
         input! {
             a: u64,
             b: u64,
         }
-        v.push((a, (a + b), i));
+        ab.push((i + 1, a, b));
     }
-
-    v.sort_by(|a, b| {
-        let l = a.0 * b.1;
-        let r = b.0 * a.1;
-        l.cmp(&r).reverse()
+    ab.sort_by(|a, b| {
+        let l = a.1 * (b.1 + b.2);
+        let r = b.1 * (a.1 + a.2);
+        if l.cmp(&r) == std::cmp::Ordering::Equal {
+            a.0.cmp(&b.0)
+        } else {
+            r.cmp(&l)
+        }
     });
 
-    let ans = v.iter().map(|&(_, _, idx)| idx);
-
+    let ans = ab.iter().map(|(i, _, _)| i);
     println!("{}", ans.format(" "));
 }
