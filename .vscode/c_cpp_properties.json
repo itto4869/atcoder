@@ -2,10 +2,11 @@
   "configurations": [
     {
       "name": "linux-gcc-x64",
-      "compilerPath": "/usr/bin/gcc",
-      "cppStandard": "${default}",
+      "compilerPath": "/usr/bin/g++",
+      "cppStandard": "gnu++20",
       "intelliSenseMode": "linux-gcc-x64",
       "includePath": [
+        "${workspaceFolder}/lib/ac-library",
         "${workspaceFolder}/**"
       ],
       "defines": [

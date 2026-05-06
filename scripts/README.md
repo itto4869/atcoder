@@ -19,3 +19,10 @@ Run from a task directory:
 ```
 
 Build outputs are written under `target/cpp/`.
+
+AtCoder Library is available from `lib/ac-library`:
+
+```cpp
+#include <atcoder/all>
+using namespace atcoder;
+```

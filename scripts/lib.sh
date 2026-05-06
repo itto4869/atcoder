@@ -44,5 +44,7 @@ build_cpp() {
   local bin="$3"
 
   mkdir -p "$(dirname "$bin")"
-  g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow -Wconversion -DLOCAL "$src" -o "$bin"
+  g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow -Wconversion -DLOCAL \
+    -I "$root/lib/ac-library" \
+    "$src" -o "$bin"
 }

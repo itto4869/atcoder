@@ -4,7 +4,7 @@
     {
       "label": "C++: build active file",
       "type": "shell",
-      "command": "mkdir -p \"${workspaceFolder}/target/cpp/${relativeFileDirname}\" && g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow -Wconversion -DLOCAL \"${file}\" -o \"${workspaceFolder}/target/cpp/${relativeFileDirname}/${fileBasenameNoExtension}\"",
+      "command": "mkdir -p \"${workspaceFolder}/target/cpp/${relativeFileDirname}\" && g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow -Wconversion -DLOCAL -I \"${workspaceFolder}/lib/ac-library\" \"${file}\" -o \"${workspaceFolder}/target/cpp/${relativeFileDirname}/${fileBasenameNoExtension}\"",
       "group": {
         "kind": "build",
         "isDefault": true
