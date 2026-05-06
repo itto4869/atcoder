@@ -1,0 +1,58 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "C++: build active file",
+      "type": "shell",
+      "command": "mkdir -p \"${workspaceFolder}/target/cpp/${relativeFileDirname}\" && g++ -std=gnu++20 -O2 -Wall -Wextra -Wshadow -Wconversion -DLOCAL \"${file}\" -o \"${workspaceFolder}/target/cpp/${relativeFileDirname}/${fileBasenameNoExtension}\"",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "C++: run active file",
+      "type": "shell",
+      "command": "\"${workspaceFolder}/target/cpp/${relativeFileDirname}/${fileBasenameNoExtension}\"",
+      "dependsOn": "C++: build active file",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      }
+    },
+    {
+      "label": "AtCoder: oj test active file",
+      "type": "shell",
+      "command": "oj test -d tests -c \"\\\"${workspaceFolder}/target/cpp/${relativeFileDirname}/${fileBasenameNoExtension}\\\"\"",
+      "dependsOn": "C++: build active file",
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      }
+    },
+    {
+      "label": "AtCoder: submit active file",
+      "type": "shell",
+      "command": "acc submit \"${fileBasename}\"",
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "focus": true
+      }
+    }
+  ]
+}
