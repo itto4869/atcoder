@@ -1,32 +1,35 @@
+use itertools::Itertools;
 use proconio::{fastout, input, marker::Chars};
 
 #[fastout]
 fn main() {
     input! {
         n: usize,
-        s: Chars,
+        s: Chars
     }
     let mut l_cnt = 0;
-    let mut stack = Vec::new();
-    for i in 0..n {
-        let c = s[i];
-        if c == '(' {
+    let mut stack = Vec::with_capacity(n);
+    for s in s {
+        if s == '(' {
             l_cnt += 1;
-            stack.push(c);
-        } else if c == ')' && l_cnt > 0 {
-            l_cnt -= 1;
-            while let Some(t) = stack.pop() {
-                if t == '(' {
-                    break;
+            stack.push(s);
+        } else if s == ')' {
+            if l_cnt > 0 {
+                while let Some(top) = stack.pop() {
+                    if top == '(' {
+                        l_cnt -= 1;
+                        break;
+                    }
                 }
+            } else {
+                stack.push(s);
             }
         } else {
-            stack.push(c);
+            stack.push(s);
         }
     }
 
-    let ans: String = stack.iter().collect();
-    if !ans.is_empty() {
-        println!("{}", ans);
+    if !stack.is_empty() {
+        println!("{}", stack.iter().format(""));
     }
 }
