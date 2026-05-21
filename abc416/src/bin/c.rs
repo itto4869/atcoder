@@ -1,3 +1,4 @@
+use itertools::Itertools;
 use proconio::{fastout, input, marker::Usize1};
 
 #[fastout]
@@ -9,25 +10,20 @@ fn main() {
         s: [String; n],
     }
     let mut v = Vec::new();
-    let mut curr = Vec::new();
-    dfs(&mut v, n, &mut curr, &s, k);
+    let perms: Vec<Vec<usize>> = std::iter::repeat(0..n)
+        .take(k)
+        .multi_cartesian_product()
+        .collect();
+    
+    for p in perms {
+        let mut tmp = String::new();
+        for i in p {
+            tmp.push_str(&s[i]);
+        }
+        v.push(tmp);
+    }
+
     v.sort_unstable();
     let ans = &v[x];
     println!("{}", ans);
-}
-
-fn dfs(v: &mut Vec<String>, n: usize, curr: &mut Vec<String>, sv: &Vec<String>, res: usize) {
-    if res == 0 {
-        let mut tmp = String::new();
-        for s in curr {
-            tmp.push_str(s);
-        }
-        v.push(tmp);
-    } else {
-        for i in 0..n {
-            curr.push(sv[i].clone());
-            dfs(v, n, curr, sv, res - 1);
-            curr.pop();
-        }
-    }
 }
