@@ -1,0 +1,38 @@
+---
+type: Batch
+timelimit: ~
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      8
+      aiiw
+      doodoo
+      aabbababcacababaaba
+      a
+      aa
+      abcdefg
+      aabcd
+      aabbcc
+    out: |
+      Yes
+      iwai
+      No
+      Yes
+      ababacabababacababa
+      Yes
+      a
+      No
+      Yes
+      abcdefg
+      Yes
+      abacd
+      Yes
+      acabcb
+
+extend:
+  - type: Text
+    path: "./d"
+    in: /in/*.txt
+    out: /out/*.txt
