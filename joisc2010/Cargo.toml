@@ -1,0 +1,178 @@
+[package]
+name = "joisc2010"
+version = "0.1.0"
+edition = "2018"
+
+[package.metadata.cargo-compete.bin]
+joisc2010-aplusb = { alias = "aplusb", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_aplusb" }
+joisc2010-contest = { alias = "contest", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_contest" }
+joisc2010-dna = { alias = "dna", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_dna" }
+joisc2010-finals = { alias = "finals", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_finals" }
+joisc2010-hideseek = { alias = "hideseek", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_hideseek" }
+joisc2010-highway = { alias = "highway", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_highway" }
+joisc2010-lake = { alias = "lake", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_lake" }
+joisc2010-plugs = { alias = "plugs", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_plugs" }
+joisc2010-poster = { alias = "poster", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_poster" }
+joisc2010-regions = { alias = "regions", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_regions" }
+joisc2010-sengoku = { alias = "sengoku", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_sengoku" }
+joisc2010-simroad1 = { alias = "simroad1", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_simroad1" }
+joisc2010-simroad2 = { alias = "simroad2", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_simroad2" }
+joisc2010-simroad3 = { alias = "simroad3", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_simroad3" }
+joisc2010-simroad4 = { alias = "simroad4", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_simroad4" }
+joisc2010-simroad5 = { alias = "simroad5", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_simroad5" }
+joisc2010-stairs = { alias = "stairs", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_stairs" }
+
+[[bin]]
+name = "joisc2010-aplusb"
+path = "src/bin/aplusb.rs"
+
+[[bin]]
+name = "joisc2010-contest"
+path = "src/bin/contest.rs"
+
+[[bin]]
+name = "joisc2010-dna"
+path = "src/bin/dna.rs"
+
+[[bin]]
+name = "joisc2010-finals"
+path = "src/bin/finals.rs"
+
+[[bin]]
+name = "joisc2010-hideseek"
+path = "src/bin/hideseek.rs"
+
+[[bin]]
+name = "joisc2010-highway"
+path = "src/bin/highway.rs"
+
+[[bin]]
+name = "joisc2010-lake"
+path = "src/bin/lake.rs"
+
+[[bin]]
+name = "joisc2010-plugs"
+path = "src/bin/plugs.rs"
+
+[[bin]]
+name = "joisc2010-poster"
+path = "src/bin/poster.rs"
+
+[[bin]]
+name = "joisc2010-regions"
+path = "src/bin/regions.rs"
+
+[[bin]]
+name = "joisc2010-sengoku"
+path = "src/bin/sengoku.rs"
+
+[[bin]]
+name = "joisc2010-simroad1"
+path = "src/bin/simroad1.rs"
+
+[[bin]]
+name = "joisc2010-simroad2"
+path = "src/bin/simroad2.rs"
+
+[[bin]]
+name = "joisc2010-simroad3"
+path = "src/bin/simroad3.rs"
+
+[[bin]]
+name = "joisc2010-simroad4"
+path = "src/bin/simroad4.rs"
+
+[[bin]]
+name = "joisc2010-simroad5"
+path = "src/bin/simroad5.rs"
+
+[[bin]]
+name = "joisc2010-stairs"
+path = "src/bin/stairs.rs"
+
+[dependencies]
+rpds = "=1.1.1"
+rand_xorshift = "=0.4.0"
+rand_xoshiro = "=0.7.0"
+statrs = "=0.18.0"
+primal = "=0.3.3"
+thiserror = "=2.0.16"
+# 202301から:
+ac-library-rs = "=0.2.0"
+once_cell = "=1.21.3"
+static_assertions = "=1.1.0"
+varisat = "=0.2.2"
+memoise = "=0.3.2"
+argio = "=0.2.0"
+bitvec = "=1.0.1"
+counter = "=0.7.0"
+hashbag = "=0.1.12"
+pathfinding = "=4.14.0"
+recur-fn = "=2.2.0"
+indexing = { version = "=0.4.1", features = ["experimental_pointer_ranges"] }
+amplify = { version = "=4.9.0", features = [
+    "c_raw",
+    "rand",
+    "stringly_conversions",
+] }
+amplify_derive = "=4.0.1"
+amplify_num = { version = "=0.5.3", features = ["std"] }
+easy-ext = "=1.0.2"
+multimap = "=0.10.1"
+btreemultimap = "=0.1.1"
+bstr = "=1.12.0"
+az = "=1.2.1"
+glidesort = "=0.1.2"
+tap = "=1.0.1"
+omniswap = "=0.1.0"
+multiversion = "=0.8.0"
+# 202004から続投:
+num = "=0.4.3"
+num-bigint = "=0.4.6"
+num-complex = "=0.4.6"
+num-integer = "=0.1.46"
+num-iter = "=0.1.45"
+num-rational = "=0.4.2"
+num-traits = "=0.2.19"
+num-derive = "=0.4.2"
+ndarray = "=0.16.1"
+nalgebra = "=0.34.0"
+alga = "=0.9.3"
+libm = "=0.2.15"
+rand = "=0.9.2"
+getrandom = "=0.3.3"
+rand_chacha = "=0.9.0"
+rand_core = "=0.9.3"
+rand_hc = "=0.4.0"
+rand_pcg = "=0.9.0"
+rand_distr = "=0.5.1"
+petgraph = "=0.8.2"
+indexmap = "=2.11.0"
+regex = "=1.11.2"
+lazy_static = "=1.5.0"
+ordered-float = "=5.0.0"
+ascii = "=1.1.0"
+permutohedron = "=0.2.4"
+superslice = "=1.0.0"
+itertools = "=0.14.0"
+itertools-num = "=0.1.3"
+maplit = "=1.0.2"
+either = "=1.15.0"
+im-rc = "=15.1.0"
+fixedbitset = "=0.5.7"
+bitset-fixed = "=0.1.0"
+proconio = { version = "=0.5.0", features = ["derive"] }
+text_io = "=0.1.13"
+rustc-hash = "=2.1.1"
+smallvec = { version = "=1.15.1", features = [
+    "const_generics",
+    "const_new",
+    "write",
+    "union",
+    "serde",
+    "arbitrary",
+] }
+
+cp_library = { git = "https://github.com/itto4869/cp_library.git", branch = "rust-1.89.0" }
+
+[dev-dependencies]
