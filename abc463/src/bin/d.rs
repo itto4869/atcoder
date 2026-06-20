@@ -5,15 +5,20 @@ fn main() {
     input! {
         n: usize,
         k: usize,
-        mut lr: [(usize, usize); n],
+        mut lr: [(i64, i64); n],
     }
-    lr.sort_by(|a, b| a.1.cmp(&b.1));
-    let mut ok = 0;
-    let mut ng = 1_000_000_000;
+
+    lr.sort_by_key(|&(_, r)| r);
+
+    let mut ok: i64 = 0;
+    let mut ng: i64 = 1_000_000_001;
+
     while ng - ok > 1 {
         let mid = (ok + ng) / 2;
-        let mut pr = 0;
+
+        let mut pr: i64 = -1;
         let mut cnt = 0;
+
         for &(l, r) in &lr {
             if l > pr {
                 pr = r + mid - 1;
