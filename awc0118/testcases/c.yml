@@ -1,0 +1,42 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      7 0
+      ATCODER
+    out: |
+      1
+  - name: sample2
+    in: |
+      14 1
+      ATCODERATCODER
+    out: |
+      2
+  - name: sample3
+    in: |
+      54 8
+      HELLOATCODERWORLDATCODERATCODERXYZATCODERQQQATCODEREND
+    out: |
+      4
+  - name: sample4
+    in: |
+      210 29
+      ATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODERATCODER
+    out: |
+      30
+  - name: sample5
+    in: |
+      1 0
+      A
+    out: |
+      0
+
+extend:
+  - type: Text
+    path: "./c"
+    in: /in/*.txt
+    out: /out/*.txt
