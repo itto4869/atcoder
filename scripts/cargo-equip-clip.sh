@@ -12,7 +12,8 @@ Environment:
 
   Notes:
   If src/bin/<bin>.rs exists, resolve the bin name from Cargo.toml.
-  Installs a clipboard command automatically: pbcopy, wl-copy, xclip, or xsel.
+  Over SSH, copies to the local terminal clipboard using OSC 52.
+  Otherwise, uses pbcopy, wl-copy, xclip, or xsel.
 EOF
 }
 
@@ -109,14 +110,37 @@ if [[ -f "$manifest_dir/src/bin/${bin_name}.rs" ]]; then
   bin_name="$resolved_bin"
 fi
 
-if command -v pbcopy >/dev/null 2>&1; then
+copy_with_osc52() {
+  local encoded
+  encoded="$(base64 | tr -d '\r\n')"
+
+  # tmux requires the OSC sequence to be wrapped in a passthrough sequence.
+  if [[ -n "${TMUX:-}" ]]; then
+    printf '\033Ptmux;\033\033]52;c;%s\a\033\\' "$encoded" > /dev/tty
+  else
+    printf '\033]52;c;%s\a' "$encoded" > /dev/tty
+  fi
+}
+
+if [[ -n "${SSH_CONNECTION:-}${SSH_CLIENT:-}${SSH_TTY:-}" ]]; then
+  if [[ ! -w /dev/tty ]]; then
+    echo "error: OSC 52 requires a terminal (/dev/tty is not writable)" >&2
+    exit 1
+  fi
+  clip_cmd=(copy_with_osc52)
+  clip_description="local clipboard via OSC 52"
+elif command -v pbcopy >/dev/null 2>&1; then
   clip_cmd=(pbcopy)
+  clip_description="clipboard via pbcopy"
 elif command -v wl-copy >/dev/null 2>&1; then
   clip_cmd=(wl-copy)
+  clip_description="clipboard via wl-copy"
 elif command -v xclip >/dev/null 2>&1; then
   clip_cmd=(xclip -selection clipboard)
+  clip_description="clipboard via xclip"
 elif command -v xsel >/dev/null 2>&1; then
   clip_cmd=(xsel --clipboard --input)
+  clip_description="clipboard via xsel"
 else
   echo "error: clipboard command not found (pbcopy, wl-copy, xclip, xsel)" >&2
   exit 1
@@ -145,4 +169,4 @@ trap 'rm -f "$tmpfile"' EXIT
 cargo equip "${equip_args[@]}" | tee "$tmpfile" | "${clip_cmd[@]}" >/dev/null
 
 bytes="$(wc -c <"$tmpfile" | tr -d ' ')"
-echo "Copied ${bytes} bytes to clipboard."
+echo "Copied ${bytes} bytes to ${clip_description}."
