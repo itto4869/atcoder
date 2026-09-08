@@ -1,7 +1,7 @@
 [package]
 name = "joi2008ho"
 version = "0.1.0"
-edition = "2018"
+edition = "2024"
 
 [package.metadata.cargo-compete.bin]
 joi2008ho-a = { alias = "a", problem = "https://atcoder.jp/contests/joi2008ho/tasks/joi2008ho_a" }

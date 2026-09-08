@@ -1,7 +1,7 @@
 [package]
 name = "awc0005"
 version = "0.1.0"
-edition = "2018"
+edition = "2024"
 
 [package.metadata.cargo-compete.bin]
 awc0005-a = { alias = "a", problem = "https://atcoder.jp/contests/awc0005/tasks/awc0005_a" }

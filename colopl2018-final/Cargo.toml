@@ -1,7 +1,7 @@
 [package]
 name = "colopl2018-final"
 version = "0.1.0"
-edition = "2018"
+edition = "2024"
 
 [package.metadata.cargo-compete.bin]
 colopl2018-final-a = { alias = "a", problem = "https://atcoder.jp/contests/colopl2018-final/tasks/colopl2018_final_a" }

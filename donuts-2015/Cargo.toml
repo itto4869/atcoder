@@ -1,7 +1,7 @@
 [package]
 name = "donuts-2015"
 version = "0.1.0"
-edition = "2018"
+edition = "2024"
 
 [package.metadata.cargo-compete.bin]
 donuts-2015-a = { alias = "a", problem = "https://atcoder.jp/contests/donuts-2015/tasks/donuts_2015_1" }

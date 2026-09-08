@@ -1,7 +1,7 @@
 [package]
 name = "joisc2010"
 version = "0.1.0"
-edition = "2018"
+edition = "2024"
 
 [package.metadata.cargo-compete.bin]
 joisc2010-aplusb = { alias = "aplusb", problem = "https://atcoder.jp/contests/joisc2010/tasks/joisc2010_aplusb" }

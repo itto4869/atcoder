@@ -1,7 +1,7 @@
 [package]
 name = "arc218"
 version = "0.1.0"
-edition = "2018"
+edition = "2024"
 
 [package.metadata.cargo-compete.bin]
 arc218-a = { alias = "a", problem = "https://atcoder.jp/contests/arc218/tasks/arc218_a" }

@@ -1,7 +1,7 @@
 [package]
 name = "code-festival-2014-qualb"
 version = "0.1.0"
-edition = "2018"
+edition = "2024"
 
 [package.metadata.cargo-compete.bin]
 code-festival-2014-qualb-a = { alias = "a", problem = "https://atcoder.jp/contests/code-festival-2014-qualb/tasks/code_festival_qualB_a" }

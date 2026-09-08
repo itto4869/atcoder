@@ -1,7 +1,7 @@
 [package]
 name = "abc304"
 version = "0.1.0"
-edition = "2018"
+edition = "2024"
 
 [package.metadata.cargo-compete.bin]
 abc304-a = { alias = "a", problem = "https://atcoder.jp/contests/abc304/tasks/abc304_a" }
