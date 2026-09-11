@@ -13,6 +13,7 @@ Environment:
   Notes:
   If src/bin/<bin>.rs exists, resolve the bin name from Cargo.toml.
   Over SSH, copies to the local terminal clipboard using OSC 52.
+  On WSL, uses clip.exe to copy to the Windows clipboard.
   Otherwise, uses pbcopy, wl-copy, xclip, or xsel.
 EOF
 }
@@ -122,6 +123,11 @@ copy_with_osc52() {
   fi
 }
 
+copy_with_windows_clip() {
+  # clip.exe accepts UTF-16LE; preserve Japanese comments and other Unicode.
+  iconv -f UTF-8 -t UTF-16LE | clip.exe
+}
+
 if [[ -n "${SSH_CONNECTION:-}${SSH_CLIENT:-}${SSH_TTY:-}" ]]; then
   if [[ ! -w /dev/tty ]]; then
     echo "error: OSC 52 requires a terminal (/dev/tty is not writable)" >&2
@@ -129,6 +135,11 @@ if [[ -n "${SSH_CONNECTION:-}${SSH_CLIENT:-}${SSH_TTY:-}" ]]; then
   fi
   clip_cmd=(copy_with_osc52)
   clip_description="local clipboard via OSC 52"
+elif [[ -r /proc/sys/kernel/osrelease ]] &&
+     grep -qi microsoft /proc/sys/kernel/osrelease &&
+     command -v clip.exe >/dev/null 2>&1; then
+  clip_cmd=(copy_with_windows_clip)
+  clip_description="Windows clipboard via clip.exe"
 elif command -v pbcopy >/dev/null 2>&1; then
   clip_cmd=(pbcopy)
   clip_description="clipboard via pbcopy"
@@ -166,7 +177,8 @@ equip_args+=("${extra_args[@]}")
 tmpfile="$(mktemp)"
 trap 'rm -f "$tmpfile"' EXIT
 
-cargo equip "${equip_args[@]}" | tee "$tmpfile" | "${clip_cmd[@]}" >/dev/null
+cargo equip "${equip_args[@]}" > "$tmpfile"
+"${clip_cmd[@]}" < "$tmpfile" >/dev/null
 
 bytes="$(wc -c <"$tmpfile" | tr -d ' ')"
 echo "Copied ${bytes} bytes to ${clip_description}."

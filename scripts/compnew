@@ -12,6 +12,9 @@ contest_id="$1"
 # 1. cargo compete new を実行
 cargo compete new "$contest_id"
 
+# 新規プロジェクトを Rust Edition 2024 に設定
+sed -i -E 's/^(edition[[:space:]]*=[[:space:]]*)"[0-9]+"/\1"2024"/' "$contest_id/Cargo.toml"
+
 # 2. ルートの Cargo.toml を上書き（RA高速化）
 cat <<EOF2 > Cargo.toml
 [workspace]
@@ -28,4 +31,4 @@ if [ -d "$contest_id/testcases" ]; then
     echo "✅ 空のtestcasesフォルダに .gitkeep を追加しました"
 fi
 
-echo "✅ ワークスペース設定を更新しました: members = [\"dp\", \"typical90\", \"tessoku-book"\, \"$contest_id\"]"
+printf '✅ ワークスペース設定を更新しました: members = ["dp", "typical90", "tessoku-book", "%s"]\n' "$contest_id"
