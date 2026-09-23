@@ -1,4 +1,6 @@
 { "github.copilot.enable": { "*": false },
 "rust-analyzer.server.path": "${userHome}/.cargo/bin/rust-analyzer",
-"rust-analyzer.rustup.toolchain": "1.89.0"
+"rust-analyzer.server.extraEnv": {
+    "RUSTUP_TOOLCHAIN": "1.89.0"
+}
 }
