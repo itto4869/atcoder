@@ -314,7 +314,7 @@ dependencies = [
 [[package]]
 name = "cp_library"
 version = "0.1.0"
-source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#4d1bb5dce431104e289462df7370e7eb18796c33"
+source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#646b535fa9cc431eff19268254507b7a3b32c17e"
 
 [[package]]
 name = "deprecate-until"
