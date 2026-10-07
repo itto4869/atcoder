@@ -19,6 +19,10 @@ cases:
       1000000000 1000000000000 998244353
     out: |
       919667211
+  - name: sample4
+    in: |
+      2 3 1
+    out: |
 
 extend:
   - type: Text
