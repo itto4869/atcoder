@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+    echo "Usage: scripts/compuse <contest-id> (例: abc478, typical90)"
+    echo "dp, typical90, tessoku-book と指定したパッケージをワークスペースに設定します。"
+    exit 0
+fi
+if [[ $# -ne 1 || ! "$1" =~ ^[a-zA-Z0-9][a-zA-Z0-9_-]*$ ]]; then
+    echo "エラー: コンテストIDを1つ指定してください (例: scripts/compuse abc478)" >&2
+    exit 1
+fi
+
+root_dir="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$root_dir"
+for package in dp typical90 tessoku-book "$1"; do
+    if [[ ! -f "$package/Cargo.toml" ]]; then
+        echo "エラー: $package/Cargo.toml がありません。" >&2
+        exit 1
+    fi
+done
+
+members='"dp", "typical90", "tessoku-book"'
+case "$1" in
+    dp|typical90|tessoku-book) ;;
+    *) members+=", \"$1\"" ;;
+esac
+
+tmpfile="$(mktemp "$root_dir/.workspace.XXXXXX")"
+trap 'rm -f "$tmpfile"' EXIT
+printf '[workspace]\nresolver = "2"\nmembers = [%s]\n' "$members" > "$tmpfile"
+chmod 644 "$tmpfile"
+mv "$tmpfile" Cargo.toml
+echo "ワークスペースを切り替えました: $members"
