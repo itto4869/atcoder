@@ -7,10 +7,10 @@ fn main() {
     input! {
         n: usize,
         q: usize,
-        a: [i64; n],
+        a: [usize; n],
     }
-    let a: Vec<Option<i64>> = a.into_iter().map(|x| Some(x)).collect();
-    let mut segtree = LazySegtree::<RangeAddMin>::from(a);
+    let a: Vec<Option<usize>> = a.into_iter().map(|x| Some(x)).collect();
+    let mut segtree = LazySegtree::<RangeAddMin<usize>>::from(a);
     for _ in 0..q {
         input! {
             t: usize,
@@ -19,7 +19,7 @@ fn main() {
             input! {
                 l: Usize1,
                 r: Usize1,
-                x: i64,
+                x: usize,
             }
             segtree.apply_range(l..=r, x);
         } else {
