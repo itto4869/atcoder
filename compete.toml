@@ -178,5 +178,5 @@ profile = "release"
 #language_id = "6088"
 [submit]
 kind = "command"
-args = ["cargo", "equip", "--exclude-atcoder-crates", "--resolve-cfgs", "--remove", "docs", "--minify", "libs", "--rustfmt", "--check", "--bin", "{{ bin_name }}", "--mine", "github.com/itto4869"]
+args = ["cargo", "equip", "--exclude-atcoder-crates", "--resolve-cfgs", "--remove", "docs", "--rustfmt", "--check", "--bin", "{{ bin_name }}", "--mine", "github.com/itto4869"]
 language_id = "6088"

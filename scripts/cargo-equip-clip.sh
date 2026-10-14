@@ -161,7 +161,6 @@ equip_args=(
   --exclude-atcoder-crates
   --resolve-cfgs
   --remove docs
-  --minify libs
   --rustfmt
   --check
   --bin "$bin_name"
