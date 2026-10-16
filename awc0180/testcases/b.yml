@@ -1,0 +1,47 @@
+---
+type: Batch
+timelimit: 2s
+match: Lines
+
+cases:
+  - name: sample1
+    in: |
+      6 3
+      cabacc
+      abc
+    out: |
+      1
+  - name: sample2
+    in: |
+      5 3
+      coder
+      ode
+    out: |
+      0
+  - name: sample3
+    in: |
+      35 13
+      thequickbrownfoxjumpsoverthelazydog
+      brownboxjumps
+    out: |
+      1
+  - name: sample4
+    in: |
+      80 25
+      abcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcdeabcde
+      edcbaedcbaedcbaedcbaedcba
+    out: |
+      20
+  - name: sample5
+    in: |
+      1 1
+      a
+      z
+    out: |
+      1
+
+extend:
+  - type: Text
+    path: "./b"
+    in: /in/*.txt
+    out: /out/*.txt
