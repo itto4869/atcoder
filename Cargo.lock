@@ -3,81 +3,6 @@
 version = 4
 
 [[package]]
-name = "abc480"
-version = "0.1.0"
-dependencies = [
- "ac-library-rs",
- "alga",
- "amplify",
- "amplify_derive",
- "amplify_num",
- "argio",
- "ascii",
- "az",
- "bitset-fixed",
- "bitvec",
- "bstr",
- "btreemultimap",
- "counter",
- "cp_library",
- "easy-ext",
- "either",
- "fixedbitset",
- "getrandom 0.3.3",
- "glidesort",
- "hashbag",
- "im-rc",
- "indexing",
- "indexmap",
- "itertools",
- "itertools-num",
- "lazy_static",
- "libm",
- "maplit",
- "memoise",
- "multimap",
- "multiversion",
- "nalgebra 0.34.0",
- "ndarray",
- "num",
- "num-bigint",
- "num-complex 0.4.6",
- "num-derive",
- "num-integer",
- "num-iter",
- "num-rational",
- "num-traits",
- "omniswap",
- "once_cell",
- "ordered-float 5.0.0",
- "pathfinding",
- "permutohedron",
- "petgraph",
- "primal",
- "proconio 0.5.0",
- "rand 0.9.2",
- "rand_chacha 0.9.0",
- "rand_core 0.9.3",
- "rand_distr 0.5.1",
- "rand_hc",
- "rand_pcg",
- "rand_xorshift",
- "rand_xoshiro 0.7.0",
- "recur-fn",
- "regex",
- "rpds",
- "rustc-hash 2.1.1",
- "smallvec",
- "static_assertions",
- "statrs",
- "superslice",
- "tap",
- "text_io",
- "thiserror 2.0.16",
- "varisat",
-]
-
-[[package]]
 name = "ac-library-rs"
 version = "0.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -314,7 +239,7 @@ dependencies = [
 [[package]]
 name = "cp_library"
 version = "0.1.0"
-source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#d8c83e9687cddb35b5ab9a5b0f08d98b997b2510"
+source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#31c49aae75df79982df91a0e0d94697f695b82c4"
 dependencies = [
  "ac-library-rs",
 ]
@@ -701,6 +626,81 @@ name = "maplit"
 version = "1.0.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3e2e65a1a2e43cfcb47a895c4c8b10d1f4a61097f9f254f183aee60cad9c651d"
+
+[[package]]
+name = "math-and-algorithm"
+version = "0.1.0"
+dependencies = [
+ "ac-library-rs",
+ "alga",
+ "amplify",
+ "amplify_derive",
+ "amplify_num",
+ "argio",
+ "ascii",
+ "az",
+ "bitset-fixed",
+ "bitvec",
+ "bstr",
+ "btreemultimap",
+ "counter",
+ "cp_library",
+ "easy-ext",
+ "either",
+ "fixedbitset",
+ "getrandom 0.3.3",
+ "glidesort",
+ "hashbag",
+ "im-rc",
+ "indexing",
+ "indexmap",
+ "itertools",
+ "itertools-num",
+ "lazy_static",
+ "libm",
+ "maplit",
+ "memoise",
+ "multimap",
+ "multiversion",
+ "nalgebra 0.34.0",
+ "ndarray",
+ "num",
+ "num-bigint",
+ "num-complex 0.4.6",
+ "num-derive",
+ "num-integer",
+ "num-iter",
+ "num-rational",
+ "num-traits",
+ "omniswap",
+ "once_cell",
+ "ordered-float 5.0.0",
+ "pathfinding",
+ "permutohedron",
+ "petgraph",
+ "primal",
+ "proconio 0.5.0",
+ "rand 0.9.2",
+ "rand_chacha 0.9.0",
+ "rand_core 0.9.3",
+ "rand_distr 0.5.1",
+ "rand_hc",
+ "rand_pcg",
+ "rand_xorshift",
+ "rand_xoshiro 0.7.0",
+ "recur-fn",
+ "regex",
+ "rpds",
+ "rustc-hash 2.1.1",
+ "smallvec",
+ "static_assertions",
+ "statrs",
+ "superslice",
+ "tap",
+ "text_io",
+ "thiserror 2.0.16",
+ "varisat",
+]
 
 [[package]]
 name = "matrixmultiply"
