@@ -314,7 +314,7 @@ dependencies = [
 [[package]]
 name = "cp_library"
 version = "0.1.0"
-source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#31c49aae75df79982df91a0e0d94697f695b82c4"
+source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#1d954acd0a72ee5c81f523c5f436413464a4191a"
 dependencies = [
  "ac-library-rs",
 ]
