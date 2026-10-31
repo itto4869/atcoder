@@ -1,5 +1,5 @@
 use ac_library::{Segtree, Max, Min};
-use cp_library::yes_no;
+use cp_utils::yes_no;
 use proconio::{fastout, input};
 
 #[fastout]

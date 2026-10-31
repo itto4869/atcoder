@@ -1,6 +1,7 @@
 use std::collections::VecDeque;
 
-use cp_library::{grid::neighbors4, yes_no};
+use cp_grid::neighbors4;
+use cp_utils::yes_no;
 use proconio::{fastout, input, marker::Chars};
 
 #[fastout]

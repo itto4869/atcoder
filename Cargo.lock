@@ -19,7 +19,12 @@ dependencies = [
  "bstr",
  "btreemultimap",
  "counter",
- "cp_library",
+ "cp_algorithm",
+ "cp_data_structure",
+ "cp_graph",
+ "cp_grid",
+ "cp_math",
+ "cp_utils",
  "easy-ext",
  "either",
  "fixedbitset",
@@ -312,12 +317,37 @@ dependencies = [
 ]
 
 [[package]]
-name = "cp_library"
+name = "cp_algorithm"
 version = "0.1.0"
-source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#ec1c9e11cd3e5fb925ab0fe2af776baece26c2bf"
+source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#72a3f222ae7fcfb7a04ce59546228f0fd784f0b3"
+
+[[package]]
+name = "cp_data_structure"
+version = "0.1.0"
+source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#72a3f222ae7fcfb7a04ce59546228f0fd784f0b3"
 dependencies = [
  "ac-library-rs",
 ]
+
+[[package]]
+name = "cp_graph"
+version = "0.1.0"
+source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#72a3f222ae7fcfb7a04ce59546228f0fd784f0b3"
+
+[[package]]
+name = "cp_grid"
+version = "0.1.0"
+source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#72a3f222ae7fcfb7a04ce59546228f0fd784f0b3"
+
+[[package]]
+name = "cp_math"
+version = "0.1.0"
+source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#72a3f222ae7fcfb7a04ce59546228f0fd784f0b3"
+
+[[package]]
+name = "cp_utils"
+version = "0.1.0"
+source = "git+https://github.com/itto4869/cp_library.git?branch=rust-1.89.0#72a3f222ae7fcfb7a04ce59546228f0fd784f0b3"
 
 [[package]]
 name = "deprecate-until"
@@ -1510,7 +1540,12 @@ dependencies = [
  "bstr",
  "btreemultimap",
  "counter",
- "cp_library",
+ "cp_algorithm",
+ "cp_data_structure",
+ "cp_graph",
+ "cp_grid",
+ "cp_math",
+ "cp_utils",
  "easy-ext",
  "either",
  "fixedbitset",
@@ -1643,7 +1678,12 @@ dependencies = [
  "bstr",
  "btreemultimap",
  "counter",
- "cp_library",
+ "cp_algorithm",
+ "cp_data_structure",
+ "cp_graph",
+ "cp_grid",
+ "cp_math",
+ "cp_utils",
  "easy-ext",
  "either",
  "fixedbitset",

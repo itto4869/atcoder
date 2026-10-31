@@ -1,5 +1,5 @@
 use ac_library::LazySegtree;
-use cp_library::data_structure::lazy_segtree_map_monoid::RangeAddMin;
+use cp_data_structure::lazy_segtree_map_monoid::RangeAddMin;
 use proconio::{fastout, input, marker::Usize1};
 
 #[fastout]

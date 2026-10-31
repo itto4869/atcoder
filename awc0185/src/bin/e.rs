@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use ac_library::{Mod1000000007, StaticModInt};
-use cp_library::math::prime_factorization::prime_factorize;
+use cp_math::prime_factorization::prime_factorize;
 use proconio::{fastout, input};
 
 type Mod107 = StaticModInt<Mod1000000007>;

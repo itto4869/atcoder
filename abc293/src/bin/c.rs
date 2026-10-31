@@ -1,5 +1,5 @@
 use std::collections::HashSet;
-use cp_library::grid::neighbors4;
+use cp_grid::neighbors4;
 use proconio::{fastout, input};
 
 #[fastout]

@@ -1,4 +1,4 @@
-use cp_library::yes_no_custom;
+use cp_utils::yes_no_custom;
 use itertools::Itertools;
 use proconio::{fastout, input};
 

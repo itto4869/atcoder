@@ -1,4 +1,4 @@
-use cp_library::math::combinations::{self, Combination};
+use cp_math::combinations::{self, Combination};
 use proconio::{fastout, input};
 
 const MOD: u64 = 998244353;

@@ -1,5 +1,5 @@
 use std::cmp::Reverse;
-use cp_library::lis;
+use cp_algorithm::lis;
 use proconio::{fastout, input};
 
 #[fastout]

@@ -1,4 +1,4 @@
-use cp_library::data_structure::weighted_dsu::WeightedDsu;
+use cp_data_structure::weighted_dsu::WeightedDsu;
 use proconio::{fastout, input, marker::Usize1};
 
 #[fastout]

@@ -1,6 +1,6 @@
 use std::collections::{HashMap, HashSet};
 
-use cp_library::yes_no;
+use cp_utils::yes_no;
 use proconio::{fastout, input, marker::{Bytes, Chars}};
 
 #[fastout]

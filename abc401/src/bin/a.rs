@@ -1,4 +1,4 @@
-use cp_library::utils::yes_no_custom;
+use cp_utils::yes_no_custom;
 use proconio::{fastout, input};
 
 #[fastout]

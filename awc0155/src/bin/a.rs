@@ -1,5 +1,4 @@
 use proconio::{fastout, input, marker::Chars};
-use cp_library;
 
 #[fastout]
 fn main() {

@@ -1,4 +1,4 @@
-use cp_library::graph::FunctionalGraph;
+use cp_graph::FunctionalGraph;
 use proconio::{fastout, input, marker::Usize1};
 
 #[fastout]

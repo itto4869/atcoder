@@ -1,7 +1,8 @@
 use std::collections::{HashMap, VecDeque};
 
 use ac_library::Dsu;
-use cp_library::{data_structure::binary_trie::BinaryTrie, graph::rooted_tree};
+use cp_data_structure::binary_trie::BinaryTrie;
+use cp_graph::rooted_tree;
 use itertools::Itertools;
 use proconio::{fastout, input, marker::Usize1};
 

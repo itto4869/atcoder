@@ -1,5 +1,5 @@
 use ac_library::{Additive, LazySegtree, Segtree};
-use cp_library::data_structure::lazy_segtree_map_monoid::RangeAddMax;
+use cp_data_structure::lazy_segtree_map_monoid::RangeAddMax;
 use proconio::{fastout, input, marker::Usize1};
 
 #[fastout]

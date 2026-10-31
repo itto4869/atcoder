@@ -1,6 +1,6 @@
 use std::usize;
 
-use cp_library::lis;
+use cp_algorithm::lis;
 use proconio::{fastout, input};
 
 #[fastout]

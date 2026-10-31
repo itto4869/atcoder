@@ -1,6 +1,6 @@
 use std::collections::VecDeque;
 
-use cp_library::graph::dijkstra;
+use cp_graph::dijkstra;
 use proconio::{fastout, input, marker::Usize1};
 
 #[fastout]

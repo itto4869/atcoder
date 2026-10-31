@@ -1,6 +1,6 @@
 use std::mem::swap;
 
-use cp_library::data_structure::prefix_sum::prefix_sum;
+use cp_data_structure::prefix_sum::prefix_sum;
 use proconio::{fastout, input, marker::Usize1};
 
 #[fastout]

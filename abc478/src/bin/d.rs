@@ -1,4 +1,4 @@
-use cp_library::data_structure::intervalset::IntervalSet;
+use cp_data_structure::intervalset::IntervalSet;
 use itertools::Itertools;
 use proconio::{fastout, input, marker::Usize1};
 

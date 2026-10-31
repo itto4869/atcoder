@@ -1,4 +1,4 @@
-use cp_library::math::prime_enumeration::enumerate_primes;
+use cp_math::prime_enumeration::enumerate_primes;
 use proconio::{fastout, input};
 
 #[fastout]

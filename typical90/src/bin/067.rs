@@ -1,5 +1,5 @@
 use proconio::{fastout, input};
-use cp_library::math::base_conversion::convert_base;
+use cp_math::base_conversion::convert_base;
 
 #[fastout]
 fn main() {

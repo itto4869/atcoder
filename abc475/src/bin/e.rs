@@ -1,4 +1,4 @@
-use cp_library::data_structure::arbitrary_binary_trie::ArbitraryBinaryTrie;
+use cp_data_structure::arbitrary_binary_trie::ArbitraryBinaryTrie;
 use proconio::{
     fastout, input,
     marker::{Chars, Usize1},

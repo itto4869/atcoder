@@ -1,4 +1,4 @@
-use cp_library::data_structure::implicit_treap::ImplicitTreap;
+use cp_data_structure::implicit_treap::ImplicitTreap;
 use itertools::Itertools;
 use proconio::{fastout, input, marker::Chars};
 

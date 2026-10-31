@@ -1,5 +1,5 @@
 use ac_library::Dsu;
-use cp_library::grid::neighbors4;
+use cp_grid::neighbors4;
 use proconio::{fastout, input, marker::Usize1};
 
 #[fastout]

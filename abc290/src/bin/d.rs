@@ -1,4 +1,4 @@
-use cp_library::math::numeric::GCD;
+use cp_math::numeric::GCD;
 use proconio::{fastout, input};
 
 #[fastout]

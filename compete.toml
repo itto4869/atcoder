@@ -114,7 +114,13 @@ smallvec = { version = "=1.15.1", features = [
     "arbitrary",
 ] }
 
-cp_library = { git = "https://github.com/itto4869/cp_library.git", branch = "rust-1.89.0" }
+# 未使用のジャンルは cargo-equip が提出コードから除外します。
+cp_algorithm = { git = "https://github.com/itto4869/cp_library.git", branch = "rust-1.89.0" }
+cp_data_structure = { git = "https://github.com/itto4869/cp_library.git", branch = "rust-1.89.0" }
+cp_graph = { git = "https://github.com/itto4869/cp_library.git", branch = "rust-1.89.0" }
+cp_grid = { git = "https://github.com/itto4869/cp_library.git", branch = "rust-1.89.0" }
+cp_math = { git = "https://github.com/itto4869/cp_library.git", branch = "rust-1.89.0" }
+cp_utils = { git = "https://github.com/itto4869/cp_library.git", branch = "rust-1.89.0" }
 '''
 
 dev-dependencies = '''

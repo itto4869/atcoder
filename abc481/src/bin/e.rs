@@ -1,5 +1,5 @@
 use std::cmp::Ordering::{Equal, Greater, Less};
-use cp_library::algorithm::polar_angle_sort;
+use cp_algorithm::polar_angle_sort;
 use proconio::{fastout, input};
 
 #[fastout]
