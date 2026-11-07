@@ -7,11 +7,10 @@ fn main() {
         a: u128,
         b: u128,
     }
-    let ans = a.lcm(b);
-    if ans > 10u128.pow(18) {
+    let c = a.lcm(b);
+    if c > 10u128.pow(18) {
         println!("Large");
-        return;
+    } else {
+        println!("{}", c);
     }
-
-    println!("{}", ans);
 }
