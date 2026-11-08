@@ -1,5 +1,4 @@
-use std::{cmp::Reverse, collections::BTreeSet};
-
+use ac_library::{Monoid, Segtree};
 use proconio::{fastout, input, marker::Usize1};
 
 #[fastout]
@@ -10,39 +9,48 @@ fn main() {
         ab: [(Usize1, Usize1); m],
     }
     let mut v = vec![0; n];
-    let mut map_v = vec![Vec::new(); n];
+    let mut vv = vec![Vec::new(); n];
     for &(a, b) in &ab {
         v[a] += 1;
-        map_v[a].push(b);
+        vv[a].push(b);
     }
 
-    let mut set = BTreeSet::new();
+    let mut segtree = Segtree::<MaxPair>::new(n);
     for i in 0..n {
-        set.insert((Reverse(v[i]), i + 1));
+        segtree.set(i, (v[i], i as i64 * -1));
     }
 
     for k in 0..n {
-        for &b in &map_v[k] {
-            set.remove(&(Reverse(v[k]), k + 1));
-            set.insert((Reverse(v[k] - 1), k + 1));
-            v[k] -= 1;
+        for &idx in &vv[k] {
+            let u = segtree.get(k);
+            segtree.set(k, (u.0 - 1, u.1));
 
-            set.remove(&(Reverse(v[b]), b + 1));
-            set.insert((Reverse(v[b] + 1), b + 1));
-            v[b] += 1;
+            let x = segtree.get(idx);
+            segtree.set(idx, (x.0 + 1, x.1));
         }
 
-        let (_, idx) = set.first().unwrap();
-        println!("{}", idx);
+        let ans = segtree.prod(..n);
+        println!("{}", ans.1 * -1 + 1);
+        for &idx in &vv[k] {
+            let u = segtree.get(k);
+            segtree.set(k, (u.0 + 1, u.1));
 
-        for &b in &map_v[k] {
-            set.remove(&(Reverse(v[k]), k + 1));
-            set.insert((Reverse(v[k] + 1), k + 1));
-            v[k] += 1;
-
-            set.remove(&(Reverse(v[b]), b + 1));
-            set.insert((Reverse(v[b] - 1), b + 1));
-            v[b] -= 1;
+            let x = segtree.get(idx);
+            segtree.set(idx, (x.0 - 1, x.1));
         }
+    }
+}
+
+struct MaxPair;
+
+impl Monoid for MaxPair {
+    type S = (usize, i64);
+
+    fn identity() -> Self::S {
+        (usize::MIN, i64::MIN)
+    }
+
+    fn binary_operation(a: &Self::S, b: &Self::S) -> Self::S {
+        (*a).max(*b)
     }
 }
