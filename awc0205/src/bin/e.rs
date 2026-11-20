@@ -1,52 +1,60 @@
-use std::{cmp::Reverse, collections::BinaryHeap};
-
 use proconio::{fastout, input};
 
 #[fastout]
 fn main() {
     input! {
         n: usize,
-        t: usize,
-        c: [usize; n],
-        d: [usize; n - 1],
+        t: i64,
+        c: [i64; n],
+        d: [i64; n - 1],
     }
-    let mut ans = 0;
-    let mut pq = BinaryHeap::new();
-    let mut v = vec![0; n];
-    let mut max_i = 0;
-    for i in 0..(n - 1) {
-        pq.push((Reverse(c[i]), Reverse(i)));
-        let mut di = d[i];
-        loop {
-            //println!("{}", ans);
-            if pq.is_empty() {
-                println!("-1");
-                return;
-            }
-            let (Reverse(ci), Reverse(i)) = pq.pop().unwrap();
 
-            if i > max_i {
-                continue;
-            }
+    if d.iter().any(|&x| x > t) {
+        println!("-1");
+        return;
+    }
 
-            if (t - v[i]) > di {
-                v[i] += di;
-                ans += ci * di;
-                pq.push((Reverse(ci), Reverse(i)));
+    // 各町の位置
+    let mut pos = vec![0i64; n];
+    for i in 0..n - 1 {
+        pos[i + 1] = pos[i] + d[i];
+    }
+
+    // 各町から見て、右側にある最初の安い町
+    let mut next = vec![None; n];
+    let mut stack: Vec<usize> = Vec::new();
+
+    for i in (0..n - 1).rev() {
+        while let Some(&j) = stack.last() {
+            if c[j] < c[i] {
                 break;
-            } else if (t - v[i]) == di {
-                v[i] += di;
-                ans += ci * di;
-                max_i = max_i.max(i);
-                break;
-            } else {
-                v[i] = t;
-                ans += ci * (t - v[i]);
-                di -= t - v[i];
-
-                max_i = max_i.max(i);
             }
+            stack.pop();
         }
+
+        next[i] = stack.last().copied();
+        stack.push(i);
+    }
+
+    let mut fuel = 0i64;
+    let mut ans = 0i64;
+
+    for i in 0..n - 1 {
+        let remain = pos[n - 1] - pos[i];
+
+        let target = match next[i] {
+            Some(j) if pos[j] - pos[i] <= t => {
+                pos[j] - pos[i]
+            }
+            _ => t.min(remain),
+        };
+
+        let buy = (target - fuel).max(0);
+
+        fuel += buy;
+        ans += buy * c[i];
+
+        fuel -= d[i];
     }
 
     println!("{}", ans);
