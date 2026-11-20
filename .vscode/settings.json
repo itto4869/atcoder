@@ -2,5 +2,6 @@
 "rust-analyzer.server.path": "${userHome}/.cargo/bin/rust-analyzer",
 "rust-analyzer.server.extraEnv": {
     "RUSTUP_TOOLCHAIN": "1.89.0"
-}
+},
+"r.lsp.promptToInstall": false
 }
